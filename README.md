@@ -11,8 +11,8 @@ This is a web app that allows Bradley University students to check the status of
 
 ## Planned Features
 
-[ ] Saving your favorite building
-[ ] Notifications when a machine is available
-[ ] Notifications when a machine is done
-[ ] Reporting a machine as not working well
-[ ] Reporting a machine as broken
+[] Saving your favorite building
+[] Notifications when a machine is available
+[] Notifications when a machine is done
+[] Reporting a machine as not working well
+[] Reporting a machine as broken
