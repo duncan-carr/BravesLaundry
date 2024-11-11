@@ -1,38 +1,18 @@
-# sv
+> NOTE: This project is in no way affiliated with Bradley University. This is a personal project that I am working on to help students at Bradley University. Additionally, this project is also not affiliated with CSC Go. If you experience issues with laundry machines, please contact your Residential Advisor as soon as possible in order to have the machine fixed.
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+# Bradley University Laundry Web App
 
-## Creating a project
+This is a web app that allows Bradley University students to check the status of laundry machines in their dorms. This app is built using SvetleKit and TailwindCSS.
 
-If you're seeing this, you've probably already done this step. Congrats!
+## Features
 
-```bash
-# create a new project in the current directory
-npx sv create
+- View the status of all laundry machines in the same building at once
+- Filter by available machines
 
-# create a new project in my-app
-npx sv create my-app
-```
+## Planned Features
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+[ ] Saving your favorite building
+[ ] Notifications when a machine is available
+[ ] Notifications when a machine is done
+[ ] Reporting a machine as not working well
+[ ] Reporting a machine as broken
