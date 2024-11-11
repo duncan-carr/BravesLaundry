@@ -17,7 +17,7 @@
 		</div>
 	</div>
 
-	<p class="my-4">University Hall - Last updated at {currentTime.toLocaleTimeString()}.</p>
+	<p class="my-4">Harper Hall - Last updated at {currentTime.toLocaleTimeString()}.</p>
 
 	<div class="flex flex-col gap-5">
 		{#each data.responses as { location, machines }}

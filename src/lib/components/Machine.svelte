@@ -4,7 +4,7 @@
 	let { machine }: { machine: any } = $props();
 </script>
 
-<div class="border rounded-md flex justify-between items-center w-full">
+<div class="border border-zinc-400 rounded-md flex justify-between items-center w-full">
 	<div class="flex items-center gap-3">
 		<div class="bg-black rounded-l-md p-3">
 			{#if machine.type === 'washer'}
