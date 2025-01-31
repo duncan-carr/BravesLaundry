@@ -21,7 +21,7 @@
 <main class="m-6 font-geist">
 	<div class="flex items-center justify-between text-sm mb-4">
 		<div class="">
-			<a class="text-muted-foreground hover:text-black" href="/">Home</a>
+			<a class="text-muted-foreground hover:text-foreground" href="/">Home</a>
 			<span class="mx-1 text-muted-foreground">/</span>
 			<span>Geisert Hall</span>
 		</div>

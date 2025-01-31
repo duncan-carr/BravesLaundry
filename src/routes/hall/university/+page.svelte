@@ -19,9 +19,9 @@
 </svelte:head>
 
 <main class="m-6 font-geist">
-	<div class="flex items-center justify-between text-sm mb-4">
+	<div class="flex items-center flex-wrap justify-between text-sm mb-4">
 		<div class="">
-			<a class="text-muted-foreground hover:text-black" href="/">Home</a>
+			<a class="text-muted-foreground hover:hover:text-foreground" href="/">Home</a>
 			<span class="mx-1 text-muted-foreground">/</span>
 			<span>University Hall</span>
 		</div>
@@ -29,7 +29,7 @@
 		<span class="text-muted-foreground">Last updated at {currentTime.toLocaleTimeString()}</span>
 	</div>
 
-	<div class="my-4 flex items-center gap-8">
+	<div class="my-4 flex gap-2 sm:items-center sm:flex-row flex-col sm:gap-8">
 		<Select.Root onSelectedChange={(v) => v && (visibleMachineType = (v.value as string))}>
 			<Select.Trigger class="w-48">
 				<Select.Value placeholder="All Machines" />
