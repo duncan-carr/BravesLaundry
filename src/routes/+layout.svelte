@@ -3,7 +3,7 @@
 	let { children } = $props();
 </script>
 
-<header class="h-14 w-full flex border-b bg-white/60 backdrop-blur items-center">
+<header class="h-14 w-full flex border-b bg-white/60 backdrop-blur items-center top-0 sticky z-50">
 	<div class="mx-6 flex items-center">
 		<a class="mr-6 flex items-center gap-2" href="/">
 			<i class="fa-solid fa-washing-machine scale-125"></i>
