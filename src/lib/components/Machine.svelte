@@ -15,11 +15,11 @@
 					<small class="font-normal">{machine.licensePlate}</small>
 				</div>
 
-				<div class="bg-black text-white rounded-full size-8 flex items-center justify-center">
-					<p class="text-xs">{machine.stickerNumber}</p>
+				<div class="bg-foreground text-background rounded-full size-8 flex items-center justify-center">
+					<p class="text-xs z-10">{machine.stickerNumber}</p>
 					{#if !machine.available}
 						<div class="absolute">
-							<div class="loader"></div>
+							<div class="loader dark:border-y-white"></div>
 						</div>
 					{/if}
 				</div>
@@ -38,11 +38,11 @@
 					<small class="font-normal">{machine.licensePlate}</small>
 				</div>
 
-				<div class="bg-black text-white rounded-full size-8 flex items-center justify-center">
-					<p class="text-xs">{machine.stickerNumber}</p>
+				<div class="bg-foreground text-background rounded-full size-8 flex items-center justify-center">
+					<p class="text-xs z-10">{machine.stickerNumber}</p>
 					{#if !machine.available}
 						<div class="absolute">
-							<div class="loader"></div>
+							<div class="loader dark:border-y-white"></div>
 						</div>
 					{/if}
 				</div>

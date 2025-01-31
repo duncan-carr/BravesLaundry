@@ -9,7 +9,7 @@
 
 <ModeWatcher />
 
-<header class="h-14 px-6 w-full flex border-b bg-white/60 dark:bg-black/60 backdrop-blur justify-between items-center top-0 sticky z-50">
+<header class="h-14 px-6 w-full flex border-b bg-background/60 backdrop-blur justify-between items-center top-0 sticky z-50">
 	<div class="flex items-center">
 		<a class="mr-6 flex items-center gap-2" href="/">
 			<i class="fa-solid fa-washing-machine scale-125"></i>

@@ -26,10 +26,10 @@
 			<span>Geisert Hall</span>
 		</div>
 
-		<span class="text-muted-foreground">Last updated at {currentTime.toLocaleTimeString()}</span>
+		<span class="text-muted-foreground">Updated at {currentTime.toLocaleTimeString()}</span>
 	</div>
 
-	<div class="my-4 flex items-center gap-8">
+	<div class="my-4 flex gap-4 sm:items-center sm:flex-row flex-col sm:gap-8">
 		<Select.Root onSelectedChange={(v) => v && (visibleMachineType = (v.value as string))}>
 			<Select.Trigger class="w-48">
 				<Select.Value placeholder="All Machines" />
