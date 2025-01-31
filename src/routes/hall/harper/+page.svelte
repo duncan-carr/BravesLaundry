@@ -1,6 +1,6 @@
 <script lang="ts">
 	import LoadingMachine from '$lib/components/LoadingMachine.svelte';
-import Machine from '$lib/components/Machine.svelte';
+	import Machine from '$lib/components/Machine.svelte';
 	import { Label } from '$lib/shadcn-components/ui/label';
 	import * as Select from '$lib/shadcn-components/ui/select/index.js';
 	import Switch from '$lib/shadcn-components/ui/switch/switch.svelte';
@@ -13,6 +13,10 @@ import Machine from '$lib/components/Machine.svelte';
 
 	let onlyShowAvailable = $state(false);
 </script>
+
+<svelte:head>
+	<title>Harper Hall - braves-laundry</title>
+</svelte:head>
 
 <main class="m-6 font-geist">
 	<div class="flex items-center justify-between text-sm mb-4">

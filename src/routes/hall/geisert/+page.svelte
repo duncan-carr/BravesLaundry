@@ -14,6 +14,10 @@
 	let onlyShowAvailable = $state(false);
 </script>
 
+<svelte:head>
+	<title>Geisert Hall - braves-laundry</title>
+</svelte:head>
+
 <main class="m-6 font-geist">
 	<div class="flex items-center justify-between text-sm mb-4">
 		<div class="">

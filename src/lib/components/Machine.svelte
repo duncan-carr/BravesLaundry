@@ -2,10 +2,6 @@
 	let { machine }: { machine: any } = $props();
 </script>
 
-<svelte:head>
-	<title>Harper Hall - braves-laundry</title>
-</svelte:head>
-
 <div class="border rounded-md flex justify-between w-80 font-geist">
 	<div class="p-4 w-full">
 		{#if machine.type === 'washer'}
