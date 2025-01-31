@@ -47,24 +47,24 @@
 						<DropdownMenu.Label>Select Your Building</DropdownMenu.Label>
 						<DropdownMenu.Separator />
 						<DropdownMenu.Item>
-							<a href="/hall/geisert">Geisert</a>
+							<a class="w-full" href="/hall/geisert">Geisert</a>
 						</DropdownMenu.Item>
 						<DropdownMenu.Item>
-							<a href="/hall/harper">Harper</a>
+							<a class="w-full" href="/hall/harper">Harper</a>
 						</DropdownMenu.Item>
 						<DropdownMenu.Item>
-							<a href="/hall/heitz">Heitz</a>
+							<a class="w-full" href="/hall/heitz">Heitz</a>
 						</DropdownMenu.Item>
 						<DropdownMenu.Item>
-							<a href="/hall/williams">Williams</a>
+							<a class="w-full" href="/hall/williams">Williams</a>
 						</DropdownMenu.Item>
 						<DropdownMenu.Item>
-							<a href="/hall/university">University</a>
+							<a class="w-full" href="/hall/university">University</a>
 						</DropdownMenu.Item>
 					  </DropdownMenu.Group>
 					  <DropdownMenu.Separator />
 						<DropdownMenu.Item>
-							<a href="https://github.com/duncan-carr/BravesLaundry" target="_blank" aria-label="GitHub repository">
+							<a class="w-full" href="https://github.com/duncan-carr/BravesLaundry" target="_blank" aria-label="GitHub repository">
 								<i class="fa-brands fa-github mr-2"></i>
 								<span class="font-geist text-sm">Contribute</span>
 							</a>
