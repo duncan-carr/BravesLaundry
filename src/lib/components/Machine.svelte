@@ -1,11 +1,50 @@
 <script lang="ts">
-	import ProgressBar from './ProgressBar.svelte';
-
 	let { machine }: { machine: any } = $props();
 </script>
 
-<div class="border border-zinc-400 rounded-md flex justify-between items-center w-full">
-	<div class="flex items-center gap-3">
+<svelte:head>
+	<title>Harper Hall - braves-laundry</title>
+</svelte:head>
+
+<div class="border rounded-md flex justify-between w-80 font-geist">
+	<div class="p-4 w-full">
+		{#if machine.type === 'washer'}
+			<div class="flex items-center justify-between w-full text-sm font-semibold">
+				<div>
+					<p>Washer</p>
+					<small class="font-normal">{machine.licensePlate}</small>
+				</div>
+
+				<div class="bg-black text-white rounded-full size-8 flex items-center justify-center">
+					<p class="text-xs">{machine.stickerNumber}</p>
+					{#if !machine.available}
+						<div class="absolute">
+							<div class="loader"></div>
+						</div>
+					{/if}
+				</div>
+			</div>
+		{:else}
+			<div class="flex items-center justify-between w-full text-sm font-semibold">
+				<div>
+					<p>Dryer</p>
+					<small class="font-normal">{machine.licensePlate}</small>
+				</div>
+
+				<div class="bg-black text-white rounded-full size-8 flex items-center justify-center">
+					<p class="text-xs">{machine.stickerNumber}</p>
+					{#if !machine.available}
+						<div class="absolute">
+							<div class="loader"></div>
+						</div>
+					{/if}
+				</div>
+			</div>
+		{/if}
+	</div>
+	
+
+	<!-- <div class="flex items-center gap-4">
 		<div class="bg-black rounded-l-md p-3">
 			{#if machine.type === 'washer'}
 				<i class="fa-solid fa-washing-machine text-white scale-150"></i>
@@ -21,5 +60,5 @@
 		<p class="m-3">
 			{`${machine.timeRemaining} ${machine.timeRemaining === 1 ? 'min' : 'mins'} left`}
 		</p>
-	{/if}
+	{/if} -->
 </div>

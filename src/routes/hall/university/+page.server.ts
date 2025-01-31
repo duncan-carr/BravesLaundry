@@ -2,7 +2,7 @@ const locations: { [key: string]: string }[] = [{ '2320032-002': 'University Hal
 
 const url = 'https://mycscgo.com/api/v1/location/c0a88120-c994-4581-8f6f-51f35533cf5c/room';
 
-export async function load({ fetch }) {
+async function loadMachines(fetch: (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>) {
 	let responses = [];
 
 	for (const location of locations) {
@@ -13,4 +13,8 @@ export async function load({ fetch }) {
 	}
 
 	return { responses };
+}
+
+export async function load({ fetch }) {
+	return { lazy: { machineData: loadMachines(fetch) } };
 }
