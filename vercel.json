@@ -1,0 +1,24 @@
+{
+    "crons": [
+        {
+            "path": "/api/active-machines/geisert",
+            "schedule": "0,20,40 * * * *"
+        },
+        {
+            "path": "/api/active-machines/harper",
+            "schedule": "4,24,44 * * * *"
+        },
+        {
+            "path": "/api/active-machines/heitz",
+            "schedule": "8,28,48 * * * *"
+        },
+        {
+            "path": "/api/active-machines/williams",
+            "schedule": "12,32,52 * * * *"
+        },
+        {
+            "path": "/api/active-machines/university",
+            "schedule": "16,36,56 * * * *"
+        }
+    ]
+}
