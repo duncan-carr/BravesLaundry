@@ -1,15 +1,20 @@
 <script lang="ts">
 	import '../app.css';
 	import { ModeWatcher, toggleMode, mode } from 'mode-watcher';
-	import * as DropdownMenu from "$lib/shadcn-components/ui/dropdown-menu";
-	import { Label } from 'bits-ui';
+	import * as DropdownMenu from '$lib/shadcn-components/ui/dropdown-menu';
+
+	import { injectAnalytics } from '@vercel/analytics/sveltekit';
 
 	let { children } = $props();
+
+	injectAnalytics();
 </script>
 
 <ModeWatcher />
 
-<header class="h-14 px-6 w-full flex border-b bg-background/60 backdrop-blur justify-between items-center top-0 sticky z-50">
+<header
+	class="h-14 px-6 w-full flex border-b bg-background/60 backdrop-blur justify-between items-center top-0 sticky z-50"
+>
 	<div class="flex items-center">
 		<a class="mr-6 flex items-center gap-2" href="/">
 			<i class="fa-solid fa-washing-machine scale-125"></i>
@@ -25,7 +30,12 @@
 	</div>
 
 	<div class="flex items-center gap-2">
-		<a href="https://github.com/duncan-carr/BravesLaundry" target="_blank" class="bg-foreground px-2 h-8 text-background md:flex hidden items-center justify-center rounded-md border" aria-label="GitHub repository">
+		<a
+			href="https://github.com/duncan-carr/BravesLaundry"
+			target="_blank"
+			class="bg-foreground px-2 h-8 text-background md:flex hidden items-center justify-center rounded-md border"
+			aria-label="GitHub repository"
+		>
 			<i class="fa-brands fa-github mr-2"></i>
 			<span class="font-geist text-sm">Contribute</span>
 		</a>
@@ -61,14 +71,19 @@
 						<DropdownMenu.Item>
 							<a class="w-full" href="/hall/university">University</a>
 						</DropdownMenu.Item>
-					  </DropdownMenu.Group>
-					  <DropdownMenu.Separator />
-						<DropdownMenu.Item>
-							<a class="w-full" href="https://github.com/duncan-carr/BravesLaundry" target="_blank" aria-label="GitHub repository">
-								<i class="fa-brands fa-github mr-2"></i>
-								<span class="font-geist text-sm">Contribute</span>
-							</a>
-						</DropdownMenu.Item>
+					</DropdownMenu.Group>
+					<DropdownMenu.Separator />
+					<DropdownMenu.Item>
+						<a
+							class="w-full"
+							href="https://github.com/duncan-carr/BravesLaundry"
+							target="_blank"
+							aria-label="GitHub repository"
+						>
+							<i class="fa-brands fa-github mr-2"></i>
+							<span class="font-geist text-sm">Contribute</span>
+						</a>
+					</DropdownMenu.Item>
 				</DropdownMenu.Content>
 			</DropdownMenu.Root>
 		</div>
