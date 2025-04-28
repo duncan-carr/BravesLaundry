@@ -24,6 +24,6 @@
 		<a href="/hall/harper" class="h-48 w-80 border rounded-md flex items-center justify-center hover:shadow-sm">Harper Hall</a>
 		<a href="/hall/heitz" class="h-48 w-80 border rounded-md flex items-center justify-center hover:shadow-sm">Heitz Hall</a>
 		<a href="/hall/williams" class="h-48 w-80 border rounded-md flex items-center justify-center hover:shadow-sm">Williams Hall</a>
-		<a href="/hall/heitz" class="h-48 w-80 border rounded-md flex items-center justify-center hover:shadow-sm">University Hall</a>
+		<a href="/hall/university" class="h-48 w-80 border rounded-md flex items-center justify-center hover:shadow-sm">University Hall</a>
 	</div>
 </main>
