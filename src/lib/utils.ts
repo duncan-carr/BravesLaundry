@@ -1,24 +1,24 @@
-import type { ClassValue } from "clsx";
-import { clsx } from "clsx";
-import { cubicOut } from "svelte/easing";
-import { derived, get, writable } from "svelte/store";
-import type { TransitionConfig } from "svelte/transition";
-import { twMerge } from "tailwind-merge";
-import { error } from "@sveltejs/kit";
+import type { ClassValue } from 'clsx';
+import { clsx } from 'clsx';
+import { cubicOut } from 'svelte/easing';
+import { derived, get, writable } from 'svelte/store';
+import type { TransitionConfig } from 'svelte/transition';
+import { twMerge } from 'tailwind-merge';
+import { error } from '@sveltejs/kit';
 
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
 
-export const isBrowser = typeof document !== "undefined";
+export const isBrowser = typeof document !== 'undefined';
 
 export function slugFromPath(path: string) {
-	return path.replace("/src/content/", "").replace(".md", "");
+	return path.replace('/src/content/', '').replace('.md', '');
 }
 
 export function hexToHsl(hex: string): [number, number, number] {
 	if (hex) {
-		const sanitizedHex = hex.replace("#", "");
+		const sanitizedHex = hex.replace('#', '');
 
 		const red = Number.parseInt(sanitizedHex.substring(0, 2), 16);
 		const green = Number.parseInt(sanitizedHex.substring(2, 4), 16);
@@ -69,7 +69,7 @@ export function hexToHsl(hex: string): [number, number, number] {
 
 export function hexToRgb(hex: string): [number, number, number] {
 	if (hex) {
-		const sanitizedHex = hex.replace("#", "");
+		const sanitizedHex = hex.replace('#', '');
 
 		const red = Number.parseInt(sanitizedHex.substring(0, 2), 16);
 		const green = Number.parseInt(sanitizedHex.substring(2, 4), 16);
@@ -81,7 +81,7 @@ export function hexToRgb(hex: string): [number, number, number] {
 }
 
 export function createCopyCodeButton() {
-	const codeString = writable("");
+	const codeString = writable('');
 	const copied = writable(false);
 	let copyTimeout = 0;
 
@@ -96,14 +96,14 @@ export function createCopyCodeButton() {
 	}
 
 	function setCodeString(node: HTMLElement) {
-		codeString.set(node.innerText.trim() ?? "");
+		codeString.set(node.innerText.trim() ?? '');
 	}
 
 	return {
 		copied,
 		copyCode,
 		setCodeString,
-		codeString,
+		codeString
 	};
 }
 
@@ -115,7 +115,7 @@ export function updateTheme(activeTheme: string, path: string) {
 		}
 	});
 
-	const theme = path === "/themes" ? activeTheme : null;
+	const theme = path === '/themes' ? activeTheme : null;
 	if (theme) {
 		return document.body.classList.add(`theme-${theme}`);
 	}
@@ -132,7 +132,7 @@ export function styleToString(style: Record<string, number | string | undefined>
 	return Object.keys(style).reduce((str, key) => {
 		if (style[key] === undefined) return str;
 		return `${str}${key}:${style[key]};`;
-	}, "");
+	}, '');
 }
 
 export function flyAndScale(
@@ -140,13 +140,9 @@ export function flyAndScale(
 	params: FlyAndScaleParams = { y: -8, x: 0, start: 0.95, duration: 150 }
 ): TransitionConfig {
 	const style = getComputedStyle(node);
-	const transform = style.transform === "none" ? "" : style.transform;
+	const transform = style.transform === 'none' ? '' : style.transform;
 
-	const scaleConversion = (
-		valueA: number,
-		scaleA: [number, number],
-		scaleB: [number, number]
-	) => {
+	const scaleConversion = (valueA: number, scaleA: [number, number], scaleB: [number, number]) => {
 		const [minA, maxA] = scaleA;
 		const [minB, maxB] = scaleB;
 
@@ -166,9 +162,34 @@ export function flyAndScale(
 
 			return styleToString({
 				transform: `${transform} translate3d(${x}px, ${y}px, 0) scale(${scale})`,
-				opacity: t,
+				opacity: t
 			});
 		},
-		easing: cubicOut,
+		easing: cubicOut
 	};
+}
+
+export type TimeBucket = {
+	dayOfWeek: number;
+	timeBucket: string;
+};
+
+export function getCurrentDayAndTimeBucket(bucketSize: number = 15): TimeBucket {
+	const now = new Date();
+
+	// getDay() returns 0 (Sunday) to 6 (Saturday)
+	const dayOfWeek = now.getDay();
+
+	const hour = now.getHours();
+	const minute = now.getMinutes();
+
+	// Calculate the bucket's starting minute.
+	const bucketMinute = Math.floor(minute / bucketSize) * bucketSize;
+
+	// Format the hour and minute into "HH:mm:00"
+	const formattedHour = hour.toString().padStart(2, '0');
+	const formattedMinute = bucketMinute.toString().padStart(2, '0');
+	const timeBucket = `${formattedHour}:${formattedMinute}:00`;
+
+	return { dayOfWeek, timeBucket };
 }

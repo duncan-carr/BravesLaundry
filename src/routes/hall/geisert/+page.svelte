@@ -64,14 +64,19 @@
 		{#await data.lazy.machineData}
 			<LoadingPage floors={5} />
 		{:then machineData}
-			{#each machineData.responses as { location, machines }}
+			{#each machineData.responses as { location, machines, averageUsage }}
 				{@const sortedMachines = machines.sort(
 					(a: any, b: any) => a.stickerNumber - b.stickerNumber
 				)}
-				<div class="">
-					{#if machineData.responses.length > 1}
-						<h1 class="font-bold text-lg mb-2">{location}</h1>
-					{/if}
+				<div>
+					<div class="flex flex-col mb-2">
+						<h1 class="font-bold text-lg">{location}</h1>
+						<p class="text-sm text-muted-foreground">
+							{averageUsage}
+							{averageUsage === 1 ? 'machine' : 'machines'} typically in use around this time
+						</p>
+					</div>
+
 					<div class="flex flex-wrap gap-3">
 						{#each sortedMachines as machine}
 							{#if onlyShowAvailable}

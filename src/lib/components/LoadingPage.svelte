@@ -6,7 +6,10 @@
 
 {#if floors > 0}
 	{#each { length: floors } as _}
-		<div class="bg-slate-300 h-6 w-20 animate-pulse rounded-md"></div>
+		<div class="flex flex-col gap-2">
+			<div class="bg-muted-foreground h-6 w-20 animate-pulse rounded-md"></div>
+			<div class="mb-2 h-4 w-48 animate-pulse rounded-md bg-muted-foreground"></div>
+		</div>
 		<div class="flex flex-wrap gap-3">
 			{#each { length: machinesPerFloor } as _}
 				<LoadingMachine />
