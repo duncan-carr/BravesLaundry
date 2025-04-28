@@ -1,5 +1,6 @@
 <script lang="ts">
 	import LoadingMachine from '$lib/components/LoadingMachine.svelte';
+	import LoadingPage from '$lib/components/LoadingPage.svelte';
 	import Machine from '$lib/components/Machine.svelte';
 	import { Label } from '$lib/shadcn-components/ui/label';
 	import * as Select from '$lib/shadcn-components/ui/select/index.js';
@@ -9,7 +10,7 @@
 
 	const currentTime = new Date();
 
-	let visibleMachineType = $state('all')
+	let visibleMachineType = $state('all');
 
 	let onlyShowAvailable = $state(false);
 </script>
@@ -30,15 +31,13 @@
 	</div>
 
 	<div class="my-4 flex gap-4 sm:items-center sm:flex-row flex-col sm:gap-8">
-		<Select.Root onSelectedChange={(v) => v && (visibleMachineType = (v.value as string))}>
+		<Select.Root onSelectedChange={(v) => v && (visibleMachineType = v.value as string)}>
 			<Select.Trigger class="w-48">
 				<Select.Value placeholder="All Machines" />
 			</Select.Trigger>
 			<Select.Content>
 				<Select.Item value="all" label="All Machines">
-					<div class="flex items-center gap-2">
-						All Machines
-					</div>
+					<div class="flex items-center gap-2">All Machines</div>
 				</Select.Item>
 				<Select.Item value="washer" label="Washers">
 					<div class="flex items-center gap-2">
@@ -63,19 +62,12 @@
 
 	<div class="flex flex-col gap-5">
 		{#await data.lazy.machineData}
-			<div class="flex flex-wrap gap-3">
-				<LoadingMachine />
-				<LoadingMachine />
-				<LoadingMachine />
-				<LoadingMachine />
-				<LoadingMachine />
-				<LoadingMachine />
-				<LoadingMachine />
-				<LoadingMachine />
-			</div>
-		{:then machineData} 
+			<LoadingPage floors={-1} machinesPerFloor={12} />
+		{:then machineData}
 			{#each machineData.responses as { location, machines }}
-				{@const sortedMachines = machines.sort((a: any, b: any) => a.stickerNumber - b.stickerNumber)}
+				{@const sortedMachines = machines.sort(
+					(a: any, b: any) => a.stickerNumber - b.stickerNumber
+				)}
 				<div>
 					{#if machineData.responses.length > 1}
 						<h1 class="font-bold text-lg mb-2">{location}</h1>
@@ -88,10 +80,8 @@
 										<Machine {machine} />
 									{/if}
 								{/if}
-							{:else}
-								{#if visibleMachineType === 'all' || machine.type === visibleMachineType}
-									<Machine {machine} />
-								{/if}
+							{:else if visibleMachineType === 'all' || machine.type === visibleMachineType}
+								<Machine {machine} />
 							{/if}
 						{/each}
 					</div>
